@@ -2,7 +2,12 @@
     <h2 class="text-center">Center By Name</h2>
     <br/>
     
-    <p><input type="text" ng-model="partialCenName" ng-change="findCenters()" placeholder="Search..." focus="true"/></p>
+    <p>
+        <input type="text" ng-model="partialCenName"  placeholder="Search..." focus="true"/>
+        <button type="button" class="btn btn-default btn-sm" ng-click="findCenters()">
+          <span class="glyphicon glyphicon-search"></span> Search 
+        </button>
+    </p>
     
     <br/>
 
@@ -13,7 +18,7 @@
 
             <strong>{{d.name}}</strong>
 
-            <a href="#/cenInfo" class="btn btn-success pull-right">Select</a>
+            <a ng-href="#/cenInfo" class="btn btn-success pull-right" ng-click="setCenterName(''{{d.name}}'')">Select</a>
 
         </div>
     </div>

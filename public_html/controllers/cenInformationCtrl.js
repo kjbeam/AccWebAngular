@@ -4,18 +4,17 @@
  * and open the template in the editor.
  */
 angular.module("accQueries")
-    .controller('cenInformationCtrl', ['$scope', 'centerFactory', 
-        function ($scope, centerFactory) {
-    //try
+    .controller('cenInformationCtrl', ['$scope', 'centerFactory', 'centerSharedDataFactory', 
+        function ($scope, centerFactory, centerSharedDataFactory) {
+   
     $scope.centers = '';
     
     centerFactory.getCenter().then(function(data) {
        $scope.centers = data; 
     });
+    
+    $scope.getCenterName = centerSharedDataFactory.get();
             
-    //$scope.centers = function () {
-    //    centerFactory.getCenterByName('CORDOVA-239');
-    //};
 }]);
                     
                     
