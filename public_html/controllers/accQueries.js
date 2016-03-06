@@ -10,16 +10,24 @@ angular.module("accQueries")
             queries: [
         { name: "Center by Name", 
           description: "Query centers by center name",
-          entity: "Centers" },
+          entity: "Centers",
+          urlroute: "centerbyname"},
         { name: "Project by Name", 
           description: "Query projects by project name",
-          entity: "Projects" },
+          entity: "Projects",
+          urlroute: "projectbyname" },
+        { name: "Project by Project Entity ID", 
+          description: "Query projects by project entity ID",
+          entity: "Projects",
+          urlroute: "projectbyentityid" }, 
         { name: "Site by Name", 
           description: "Query sites by site name",
-          entity: "Sites" },
+          entity: "Sites",
+          urlroute: "sitebyname" },
         { name: "Facility by Name", 
           description: "Query facilities by facility name",
-          entity: "Facilities" }]
+          entity: "Facilities",
+          urlroute: "facilitybyname" }]
         }
 });
 

@@ -1,0 +1,21 @@
+<div  ng-controller="cenNameLikeCtrl" class="container-fluid">
+    <h2 class="text-center">Center By Name</h2>
+    <br/>
+    
+    <p><input type="text" ng-model="partialCenName" ng-change="findCenters()" placeholder="Search..." focus="true"/></p>
+    
+    <br/>
+
+    <div  class="col-xs-4">
+        
+        <div class="well"
+             ng-repeat="d in thedata| orderBy: 'name'">
+
+            <strong>{{d.name}}</strong>
+
+            <a href="#/cenInfo" class="btn btn-success pull-right">Select</a>
+
+        </div>
+    </div>
+</div>
+
