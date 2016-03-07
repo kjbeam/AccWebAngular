@@ -4,21 +4,22 @@
     
     <div class="row">
         <div class="col-xs-6 col-sm-4">
-            <p><strong>Center Name:</strong>&nbsp;{{centers.centerName}}</p>
+            <p><strong>Center Name:</strong><br>{{centers.centerName}}</p>
             <p>
                 <strong>Center Address:</strong><br>
-                {{centers.streetAddress1}}<br>
-                {{centers.city}},&nbsp;{{centers.state}}&nbsp;&nbsp;{{centers.zip}}<br>
-                {{centers.country}}            
-            </p>
+                        {{centers.streetAddress1}}<br>
+                        {{centers.city}},&nbsp;{{centers.state}}&nbsp;&nbsp;{{centers.zip}}<br>
+                        {{centers.country}}            
+            </p>                    
         </div>
         <div class="col-xs-6 col-sm-4">
-            <p><strong>Number of open Stores:</strong>&nbsp;{{centers.numberofOpenStores}}<br></p>
-            <p><strong>Lease Plan Date:</strong>&nbsp;{{centers.leasePlanDate | date:'MM-dd-yyyy'}}</p>
-            
+            <p><strong>Number of open Stores:</strong><br>{{centers.numberofOpenStores}}<br></p>
+            <p><strong>Lease Plan Date:</strong><br>{{centers.leasePlanDate | date:'MM-dd-yyyy'}}</p>
         </div>
         <div class="col-xs-6 col-sm-4">
-            
+            <p><strong>Region:</strong><br>{{centers.regionFK}}<br></p>
+            <p><strong>Four Wall Sales:</strong><br>{{centers.wallSales | currency}}</p>
+            <p><strong>Four Wall Sales Date:</strong><br>{{centers.wallSalesDate | date:'MM-dd-yyyy'}}</p>
         </div>
     </div>
 </div>
