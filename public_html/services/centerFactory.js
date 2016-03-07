@@ -1,12 +1,12 @@
 angular.module("accQueries")
-    .factory('centerFactory', ['$http','$q', function($http, $q) {
+    .factory('centerFactory', ['$http','$q', 'centerSharedDataFactory', function($http, $q, centerSharedDataFactory) {
         
         return {
     
     center: '',
     
     makeRequest: function(url) {
-      // Create the deffered object
+      // Create the deferred object
       var deferred = $q.defer();
       
       $http.get(url).then(function(resp) {
@@ -17,12 +17,11 @@ angular.module("accQueries")
     },
     
     getCenter: function() {
-      if(!this.center) {
-        // Request has not been made, so make it
-        console.log("Center requested, only fires once");
-        this.center = this.makeRequest("http://10.236.65.95:8080/AccruentQA_DB/webresources/restfulservices.vwcustcenter/centerName/CORDOVA-239");
-      }
-      // Return the myObject stored on the service
+      // Get the center name from the center shared data factory
+      var cenName = centerSharedDataFactory.get();
+      this.center = this.makeRequest("http://10.236.65.95:8080/AccruentQA_DB/webresources/restfulservices.vwcustcenter/centerName/" + cenName);
+
+      // Return the center object stored on the service
       return this.center;
     }
     
