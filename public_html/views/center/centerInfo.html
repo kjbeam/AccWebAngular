@@ -1,25 +1,34 @@
 <div  ng-controller="cenInformationCtrl" class="container-fluid">
-    <h2 class="text-center">Center Information</h2>
+    <h2 class="text-center">Center Profile</h2>
+    <h2 class="text-center">{{centers.centerName}}</h2>
     <br/>
     
     <div class="row">
+        <!-- First Column -->
         <div class="col-xs-6 col-sm-4">
-            <p><strong>Center Name:</strong><br>{{centers.centerName}}</p>
-            <p>
-                <strong>Center Address:</strong><br>
+            <p><strong>Tier:&nbsp;&nbsp;</strong></p>
+            <p><strong>Segment:&nbsp;&nbsp;</strong></p>
+            <p><strong>Developer:&nbsp;&nbsp;</strong></p>
+            <p><strong>Occupancy %:&nbsp;&nbsp;</strong>{{centers.occupancyPercent}}</p>
+        </div>
+        
+        <!-- Second Column -->
+        <div class="col-xs-6 col-sm-4">
+            <p><strong>Total Center Size:&nbsp;&nbsp;</strong>{{totalCenterSize | number: 0}}</p>
+            <p><strong>Mall Tenant GLA:&nbsp;&nbsp;</strong>{{centers.GLAExcludingAnchors | number:0}}</p>
+            <p><strong>Center Volume:&nbsp;&nbsp;</strong>{{centerVol | number:0}}</p>
+            <p><strong>LL Specialty Store Prod:&nbsp;&nbsp;</strong>{{llSpecStrProd | number:0}}</p>
+        </div>
+        
+        <!-- Third Column -->
+        <div class="col-xs-6 col-sm-4">
+            <strong>Center Address:</strong><br>
                         {{centers.streetAddress1}}<br>
                         {{centers.city}},&nbsp;{{centers.state}}&nbsp;&nbsp;{{centers.zip}}<br>
-                        {{centers.country}}            
-            </p>                    
-        </div>
-        <div class="col-xs-6 col-sm-4">
-            <p><strong>Number of open Stores:</strong><br>{{centers.numberofOpenStores}}<br></p>
-            <p><strong>Lease Plan Date:</strong><br>{{centers.leasePlanDate | date:'MM-dd-yyyy'}}</p>
-        </div>
-        <div class="col-xs-6 col-sm-4">
-            <p><strong>Region:</strong><br>{{centers.regionFK}}<br></p>
-            <p><strong>Four Wall Sales:</strong><br>{{centers.wallSales | currency}}</p>
-            <p><strong>Four Wall Sales Date:</strong><br>{{centers.wallSalesDate | date:'MM-dd-yyyy'}}</p>
+                        {{centers.country}}
+                        <br><br>
+            <p><strong>Metro Area:&nbsp;&nbsp;</strong>{{metroArea}}</p>
+            <p><strong>Metro Pop:&nbsp;&nbsp;</strong></p>
         </div>
     </div>
 </div>

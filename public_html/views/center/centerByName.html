@@ -4,8 +4,8 @@
     
     <p>
         <input type="text" ng-model="partialCenName"  placeholder="Search..." focus="true"/>
-        <button type="button" class="btn btn-default btn-sm" ng-click="findCenters()">
-          <span class="glyphicon glyphicon-search"></span> Search 
+        <button type="button" class="btn btn-success" ng-click="findCenters()">
+             <i class="fa fa-search"></i>
         </button>
     </p>
     
@@ -18,7 +18,7 @@
 
             <strong>{{d.name}}</strong>
 
-            <a ng-href="#/cenInfo" class="btn btn-success pull-right" ng-click="setCenterName(d.name)">Select</a>
+            <a ng-href="#/cenInfo" class="btn btn-success pull-right" ng-click="setCenterName(d.name);setProjectEntityID(d.projectEntityPK)">Select</a>
 
         </div>
     </div>

@@ -1,11 +1,11 @@
 <div class="panel panel-default row" ng-controller="queryListCtrl">
     <div class="col-xs-3">
         <a ng-click="selectEntity()"
-           class="btn btn-block btn-default btn-lg">Home</a>
+           class="btn btn-block btn-default btn-lg"><h2>Home</h2></a>
            <a ng-repeat="query in data.queries  | orderBy: 'entity' | unique: 'entity'"
                ng-click="selectEntity(query)" class="btn btn-block btn-default btn-lg"
                ng-class="getEntityClass(query)">
-                  {{query}}
+               <h2>{{query}}</h2>
            </a>
     </div>
 
@@ -13,9 +13,7 @@
         <div class="well" 
              ng-repeat="query in data.queries | filter:entityFilterFn">
             
-            <h3>
-                <strong>{{query.name}}</strong>
-            </h3>
+            <h2><strong>{{query.name}}</strong></h2>
             
             <a href="#/{{query.urlroute}}" class="btn btn-success pull-right">Select</a>
 
