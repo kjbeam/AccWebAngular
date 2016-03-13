@@ -34,9 +34,27 @@ and open the template in the editor.
 #rcorners2 {
     border-radius: 25px;
     border: 2px solid black;
-    padding: 20px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    margin-left: 0;
+    margin-right: 0;
     width: auto;
     height: auto;    
+}
+
+#cenInfoForm .form-control {
+  border: 0;
+  box-shadow: none;
+}
+
+#cenInfoForm input[type="text"]:disabled{
+    font-family: Lato;
+    background-color:white;
+    color: black;
+}
+
+label {
+    font-family: Lato;
 }
 
 h1 {
