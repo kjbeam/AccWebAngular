@@ -11,14 +11,14 @@ angular.module("accQueries")
              'centerFactory', 
              'centerSharedDataFactory', 
              'saveProjectEntityID',
-             'centerClientExtFactory', 
+             'clientExtFactory', 
              'customCodeDDFieldFactory',
              'employerFactory',
             function ($scope, 
                       centerFactory, 
                       centerSharedDataFactory, 
                       saveProjectEntityID, 
-                      centerClientExtFactory, 
+                      clientExtFactory, 
                       customCodeDDFieldFactory,
                       employerFactory) {
 
@@ -45,7 +45,7 @@ angular.module("accQueries")
                     });
                 });
 
-                centerClientExtFactory.getClientExt().then(function (cedata) {
+                clientExtFactory.getClientExt().then(function (cedata) {
                     $scope.clientExt = cedata;
 
                     angular.forEach($scope.clientExt, function (value, index) {

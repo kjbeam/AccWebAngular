@@ -1,5 +1,5 @@
 angular.module("accQueries")
-        .factory('centerClientExtFactory', ['$http', '$q', 'saveProjectEntityID', function ($http, $q, saveProjectEntityID) {
+        .factory('clientExtFactory', ['$http', '$q', 'saveProjectEntityID', function ($http, $q, saveProjectEntityID) {
 
                 return {
                     clientExtension: '',

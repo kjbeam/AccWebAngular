@@ -1,11 +1,16 @@
 /* 
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * Controller to filter to query list based on entity selection.
+ *
  */
 angular.module("accQueries")
         .constant("queryListActiveClass","btn-primary")
-        .controller("queryListCtrl", function ($scope, $filter, queryListActiveClass) {
+        .controller("queryListCtrl", 
+            ['$scope',
+             '$filter',
+             'queryListActiveClass', 
+             function ($scope, 
+                       $filter, 
+                       queryListActiveClass) {
         
         var selectedEntity = null;
 
@@ -21,5 +26,5 @@ angular.module("accQueries")
         $scope.getEntityClass = function (entity) {
             return selectedEntity == entity ? queryListActiveClass : "";
         }
-});
+}]);
 

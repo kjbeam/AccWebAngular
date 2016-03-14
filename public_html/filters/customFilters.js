@@ -1,7 +1,8 @@
 /* 
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * Filter used to populate the left side navbar with unique
+ * entities based on the JSON data defined in the 
+ * accQueriesCtrl controller.
+ * 
  */
 angular.module("customFilters",[])
         .filter("unique", function() {

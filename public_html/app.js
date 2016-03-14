@@ -1,4 +1,5 @@
 // This is the main module for the application.
+// Routing definitions are defined here.
 
 'use strict';
 
