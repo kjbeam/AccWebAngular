@@ -1,7 +1,9 @@
 /* 
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * Center Information Controller
+ * 
+ * Pull all the information for the center information 
+ * screen (centerInfo.html)
+ * 
  */
 angular.module("accQueries")
         .controller('cenInformationCtrl', 
@@ -11,12 +13,14 @@ angular.module("accQueries")
              'saveProjectEntityID',
              'centerClientExtFactory', 
              'customCodeDDFieldFactory',
+             'employerFactory',
             function ($scope, 
                       centerFactory, 
                       centerSharedDataFactory, 
                       saveProjectEntityID, 
                       centerClientExtFactory, 
-                      customCodeDDFieldFactory) {
+                      customCodeDDFieldFactory,
+                      employerFactory) {
 
                 // Define the scope fields that will hold the Center
                 // Information view data.
@@ -30,9 +34,15 @@ angular.module("accQueries")
                 $scope.tier = '';
                 $scope.segment = '';
                 $scope.metroPop = '';
+                $scope.employer = '';
 
                 centerFactory.getCenter().then(function (data) {
                     $scope.centers = data;
+                    
+                    // Fetch the Developer name from the employerFactory.
+                    employerFactory.getEmployerData($scope.centers.developer).then(function (empData) {
+                        $scope.employer = empData;
+                    });
                 });
 
                 centerClientExtFactory.getClientExt().then(function (cedata) {

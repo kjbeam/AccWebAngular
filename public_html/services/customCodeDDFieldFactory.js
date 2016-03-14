@@ -1,3 +1,6 @@
+/*
+ *  Factory to bring back data from Lx_customCodeDropdownField by the PK
+ */
 angular.module("accQueries")
         .factory('customCodeDDFieldFactory', ['$http', '$q', function ($http, $q) {
 
