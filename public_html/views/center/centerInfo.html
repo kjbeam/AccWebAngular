@@ -1,39 +1,35 @@
 <div  ng-controller="cenInformationCtrl" class="container-fluid">
-    <div class="jumbotron">
+    <div class="jumbotron" id="jumbotronCenInfoForm">
         <h2 class="text-center">Center Profile</h2>
         <h2 class="text-center">{{centers.centerName}}</h2>
     </div>
 
-    <br/>
     <form class="form-horizontal" role="form" id="cenInfoForm">
     <div class="row" id="rcorners2">
         <!-- First Horizontal Row -->
         <div class="col-xs-6 col-lg-4">
             <div class="form-group">
-                <label for="tierField" class="col-md-4 control-label">Tier:</label>
+                <label class="col-md-4 control-label">Tier:</label>
                 <div class="col-md-8">
                     <p class="form-control-static">{{tier}}</p>
-                    <!-- comment <input type="text" class="form-control" id="tierField" value="{{tier}}" disabled> -->
                 </div>
             </div>
         </div>
         
         <div class="col-xs-6 col-lg-4">
             <div class="form-group">    
-                <label for="totCenSizeField" class="col-md-4 control-label">Total Center Size:</label>
+                <label class="col-md-4 control-label">Total Center Size:</label>
                 <div class="col-md-8">
                     <p class="form-control-static">{{totalCenterSize | number: 0}}</p>
-                    <!-- comment <input type="text" class="form-control" id="totCenSizeField" value="{{totalCenterSize | number: 0}}" disabled> -->
                 </div>
             </div>
         </div>    
             
         <div class="col-xs-6 col-lg-4">
             <div class="form-group">
-                <label for="addressField" class="col-md-4 control-label">Address:</label>
+                <label class="col-md-4 control-label">Address:</label>
                 <div class="col-md-8">
                     <p class="form-control-static">{{centers.streetAddress1}}</p>
-                    <!-- comment <input type="text" class="form-control" id="addressField" value="{{centers.streetAddress1}}" disabled> -->
                 </div>
             </div>
         </div>  
@@ -41,30 +37,27 @@
         <!-- Second Horizontal Row -->    
         <div class="col-xs-6 col-lg-4">
             <div class="form-group">
-                <label for="segmentField" class="col-md-4 control-label">Segment:</label>
+                <label class="col-md-4 control-label">Segment:</label>
                 <div class="col-md-8">
                     <p class="form-control-static">{{segment}}</p>
-                    <!-- comment <input type="text" class="form-control" id="segmentField" value="{{segment}}" disabled> -->
                 </div>
             </div>
         </div>             
             
         <div class="col-xs-6 col-lg-4">
             <div class="form-group">
-                <label for="mallGLAField" class="col-md-4 control-label">Mall Tenant GLA:</label>
+                <label class="col-md-4 control-label">Mall Tenant GLA:</label>
                 <div class="col-md-8">
                     <p class="form-control-static">{{centers.GLAExcludingAnchors| number:0}}</p>
-                    <!-- comment <input type="text" class="form-control" id="mallGLAField" value="{{centers.GLAExcludingAnchors| number:0}}" disabled>  --> 
                 </div>
             </div>
         </div>            
         
         <div class="col-xs-6 col-lg-4">
             <div class="form-group">
-                <label for="cityStateZipField" class="col-md-4 control-label">City, State Zip:</label>
+                <label class="col-md-4 control-label">City, State Zip:</label>
                 <div class="col-md-8">
                     <p class="form-control-static">{{centers.city}},&nbsp;{{centers.state}}&nbsp;&nbsp;{{centers.zip}}</p>
-                    <!-- comment <input type="text" class="form-control" id="cityStateZipField" value="{{centers.city}},&nbsp;{{centers.state}}&nbsp;&nbsp;{{centers.zip}}" disabled> -->
                 </div>
             </div>
         </div>     
@@ -72,30 +65,27 @@
         <!-- Third Horizontal Row -->
         <div class="col-xs-6 col-lg-4">
             <div class="form-group">
-                <label for="developerField" class="col-md-4 control-label">Developer:</label>
+                <label class="col-md-4 control-label">Developer:</label>
                 <div class="col-md-8">
                     <p class="form-control-static">Some developer</p>
-                    <!-- comment <input type="text" class="form-control" id="developerField" value="Some Developer" disabled> -->
                 </div>
             </div>
         </div>   
             
         <div class="col-xs-6 col-lg-4">
             <div class="form-group">
-                <label for="cenVolField" class="col-md-4 control-label">Center Volume:</label>
+                <label class="col-md-4 control-label">Center Volume:</label>
                 <div class="col-md-8">
                     <p class="form-control-static">{{centerVol| number:0}}</p>
-                    <!-- comment <input type="text" class="form-control" id="cenVolField" value="{{centerVol| number:0}}" disabled> -->   
                 </div>
             </div>
         </div>   
         
         <div class="col-xs-6 col-lg-4">
             <div class="form-group">
-                <label for="countryField" class="col-md-4 control-label">Country:</label>
+                <label class="col-md-4 control-label">Country:</label>
                 <div class="col-md-8">
                     <p class="form-control-static">{{centers.country}}</p>
-                    <!-- comment <input type="text" class="form-control" id="countryField" value="{{centers.country}}" disabled> -->
                 </div>
             </div>
         </div>   
@@ -103,40 +93,36 @@
         <!-- Fourth Horizontal Row -->
         <div class="col-xs-6 col-lg-4">
             <div class="form-group">
-                <label for="occPctField" class="col-md-4 control-label">Occupancy %:</label>
+                <label class="col-md-4 control-label">Occupancy %:</label>
                 <div class="col-md-8">
                     <p class="form-control-static">{{centers.occupancyPercent}}</p>
-                    <!-- comment <input type="text" class="form-control" id="occPctField" value="{{centers.occupancyPercent}}" disabled> -->
                 </div>
             </div>
         </div>   
 
         <div class="col-xs-6 col-lg-4">
             <div class="form-group">
-                <label for="llSpecStoreProdField" class="col-md-4 control-label">LL Specialty Store Prod:</label>
+                <label class="col-md-4 control-label">LL Specialty Store Prod:</label>
                 <div class="col-md-8">
                     <p class="form-control-static">{{llSpecStrProd| number:0}}</p>
-                    <!-- comment <input type="text" class="form-control" id="llSpecStoreProdField" value="{{llSpecStrProd| number:0}}" disabled> -->
                 </div>
             </div>
         </div>  
 
         <div class="col-xs-6 col-lg-4">
             <div class="form-group">
-                <label for="metroAreaField" class="col-md-4 control-label">Metro Area:</label>
+                <label class="col-md-4 control-label">Metro Area:</label>
                 <div class="col-md-8">
                     <p class="form-control-static">{{metroArea}}</p>
-                    <!-- comment <input type="text" class="form-control" id="metroAreaField" value="{{metroArea}}" disabled> -->
                 </div>
             </div>
         </div>  
         
         <div class="col-xs-6 col-lg-4">
             <div class="form-group">
-                <label for="metroPopField" class="col-md-4 control-label">Metro Pop:</label>
+                <label class="col-md-4 control-label">Metro Pop:</label>
                 <div class="col-md-8">
                     <p class="form-control-static">{{metroPop | number:0}}</p>
-                    <!-- comment <input type="text" class="form-control" id="metroPopField" value="{{metroPop | number:0}}" disabled> -->
                 </div>
             </div>
         </div>  
