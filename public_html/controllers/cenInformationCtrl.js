@@ -4,10 +4,22 @@
  * and open the template in the editor.
  */
 angular.module("accQueries")
-        .controller('cenInformationCtrl', ['$scope', 'centerFactory', 'centerSharedDataFactory', 'saveProjectEntityID',
-            'centerClientExtFactory', 'customCodeDDFieldFactory',
-            function ($scope, centerFactory, centerSharedDataFactory, saveProjectEntityID, centerClientExtFactory, customCodeDDFieldFactory) {
+        .controller('cenInformationCtrl', 
+            ['$scope', 
+             'centerFactory', 
+             'centerSharedDataFactory', 
+             'saveProjectEntityID',
+             'centerClientExtFactory', 
+             'customCodeDDFieldFactory',
+            function ($scope, 
+                      centerFactory, 
+                      centerSharedDataFactory, 
+                      saveProjectEntityID, 
+                      centerClientExtFactory, 
+                      customCodeDDFieldFactory) {
 
+                // Define the scope fields that will hold the Center
+                // Information view data.
                 $scope.centers = '';
                 $scope.clientExt = '';
                 $scope.customCodeDDField = '';
