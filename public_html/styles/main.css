@@ -66,6 +66,12 @@ and open the template in the editor.
     margin-bottom: 10px;
 }
 
+.validationError {
+    color:red; 
+    padding-left: 10px;
+    font-size: 18px;
+}
+
 label {
     font-family: Lato;
 }
