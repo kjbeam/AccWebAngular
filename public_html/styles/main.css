@@ -12,6 +12,11 @@ and open the template in the editor.
   padding-top: 10px;
 }
 
+.fa-print {
+  color: white;
+  padding-top: 10px;
+}
+
 .jumbotron {
     padding-top: 10px;
     padding-bottom: 10px;
@@ -26,10 +31,19 @@ and open the template in the editor.
     font-family: Lato;
     margin-left: 17px;
     font-size: 15px;
+    height: 34px;
+    width: 250px;
+    padding-left : 10px;
 }
 
 #searchBut {
-    margin-bottom: 5px;
+    margin-bottom: 4px;
+    margin-left: -4px;
+    border-radius: 0;
+}
+
+#butSelectLseNum {
+    margin-top: -8px;
 }
 
 #rcorners2 {

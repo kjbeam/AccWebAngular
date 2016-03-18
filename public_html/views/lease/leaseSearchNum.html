@@ -1,0 +1,24 @@
+<div  ng-controller="leaseSearchCtrl" class="container-fluid">
+    <h2 class="text-center">Lease By Number</h2>
+    <br/>
+    
+    <p>
+        <input type="text" ng-model="leaseNumber"  placeholder="Search..." focus="true" id="searchText"
+               ng-keyup="$event.keyCode == 13 ? findLease(leaseNumber) : null"/>
+        <button type="button" class="btn btn-success" ng-click="findLease(leaseNumber)" id="searchBut">
+             <i class="fa fa-search"></i>
+        </button>
+    </p>
+    
+    <br/>
+
+    <div  class="col-xs-4">
+        <div class="well" ng-show="show">
+            
+                <strong>{{leases.name}}</strong>
+
+                <a ng-href="#/leaseExpenses" class="btn btn-success pull-right" id="butSelectLseNum">Select</a>
+
+        </div>
+    </div>
+</div>
