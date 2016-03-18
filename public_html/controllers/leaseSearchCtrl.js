@@ -6,10 +6,13 @@ angular.module("accQueries")
         .controller('leaseSearchCtrl',
                 ['$scope',
                     'leaseFactory',
+                    'projectEntityFactory',
                     function ($scope,
-                            leaseFactory) {
+                            leaseFactory,
+                            projectEntityFactory) {
 
                         $scope.leases = '';
+                        $scope.projectEntity = '';
                         $scope.show = false;
 
                         $scope.findLease = function (pLeaseNum) {
@@ -17,7 +20,11 @@ angular.module("accQueries")
                                 $scope.leases = data;
                                 if ($scope.leases === null) {
                                     $scope.show = false;
-                                } else {
+                                } else {  // Lease returned good data.
+                                    // Fetch the name from Project Entity
+                                    projectEntityFactory.getProjectEntity($scope.leases.propertyId).then(function (peData) {
+                                        $scope.projectEntity = peData;
+                                    });
                                     $scope.show = true;
                                 }
                             });

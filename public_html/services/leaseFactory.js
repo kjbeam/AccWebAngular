@@ -5,13 +5,12 @@ angular.module("accQueries")
                     leases: '',
                     makeRequest: function (url) {
                         return $http.get(url).then(function (response) {
-                            //do something
+                            // Success
                             return response.data;
                         }, function (error) {
-                            //do something
-                            console.dir(error);
+                            // Error - Something went wrong
+                            //console.dir(error);
                             return null;
-                            //return error;
                         });
                     },
                     // Return a single lease based on lease number
