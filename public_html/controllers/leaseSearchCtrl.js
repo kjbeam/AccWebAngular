@@ -7,11 +7,14 @@ angular.module("accQueries")
                 ['$scope',
                     'leaseFactory',
                     'projectEntityFactory',
+                    'expensesFactory',
                     function ($scope,
                             leaseFactory,
-                            projectEntityFactory) {
+                            projectEntityFactory,
+                            expensesFactory) {
 
                         $scope.leases = '';
+                        $scope.expenses = '';
                         $scope.projectEntity = '';
                         $scope.show = false;
 
@@ -24,6 +27,10 @@ angular.module("accQueries")
                                     // Fetch the name from Project Entity
                                     projectEntityFactory.getProjectEntity($scope.leases.propertyId).then(function (peData) {
                                         $scope.projectEntity = peData;
+                                    });
+                                    // Fetch the current expenses for this lease number
+                                    expensesFactory.getExpenses($scope.leases.leaseNumber).then(function (exData) {
+                                        $scope.expenses = exData;
                                     });
                                     $scope.show = true;
                                 }

@@ -19,18 +19,31 @@
             <div class="well">
                 <h3>{{leases.name}} - {{projectEntity.name}}</h3>
             </div>
-            <div>
-                <p><label>Lease End Date:</label>&nbsp;&nbsp;{{leases.leaseEndDate | date:"MM/dd/yyyy"}}</p>
-                <p><label>Rentable Area:</label>&nbsp;&nbsp;{{leases.rentableArea | number: 0}}</p>
-            </div>
         </div>
         <!-- Second Column -->
-        <div  class="col-md-4">
-            
+        <div  class="col-md-4" ng-cloak>
+            <fieldset class="expCat">
+                <legend>General Information</legend>
+                <div>
+                    <p><label>Lease End Date:</label><span>{{leases.leaseEndDate | date:"MM/dd/yyyy"}}</span></p>
+                    <p><label>Rentable Area:</label><span>{{leases.rentableArea | number: 0}}</span></p>
+                </div>
+            </fieldset>
         </div>
         <!-- Third Column -->
         <div  class="col-md-4">
-            
+            <fieldset class="expCat">
+                <legend>Expense Categories</legend>
+                <!-- comment <p><label>Expense Category</label></p> -->
+                <div ng-repeat="expense in expenses">
+                
+                    <p>
+                        <label>{{expense.expenseName}}:</label>
+                        <span>{{expense.amount/expense.rentableArea | number: 2}}</span>
+                    </p>
+                
+                </div>
+            </fieldset>
         </div>
     </div>
     

@@ -57,6 +57,13 @@ and open the template in the editor.
     height: auto;    
 }
 
+.expCat label, .expCat span {
+  display:inline-block;
+}
+
+.expCat label {
+  width:200px; /* or whatever size you want them */
+}
 
 #cenInfoForm [class*="col-"]{
     margin-bottom: -10px;
