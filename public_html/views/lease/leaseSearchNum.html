@@ -5,15 +5,17 @@
     <p>
         <input type="text" ng-model="leaseNumber"  placeholder="Search..." focus="true" id="searchText"
                ng-keyup="$event.keyCode == 13 ? findLease(leaseNumber) : null"/>
-        <button type="button" class="btn btn-success" ng-click="findLease(leaseNumber)" id="searchBut">
+        <button type="button" class="btn btn-success" ng-click="findLease(leaseNumber);show = false" id="searchBut">
              <i class="fa fa-search"></i>
         </button>
         <span ng-if="leases === null" class="validationError">** Entered lease number not found. **</span>
     </p>
     
     <br/>
-
-    <div class="row" ng-show="show">
+    <div ng-if="dataLoading" style="padding-left : 10px;">
+        <em>Loading...</em>
+    </div>
+    <div class="row" ng-show="show" ng-cloak>
         <!-- First Column -->
         <div  class="col-md-4">
             <div class="well">
@@ -21,7 +23,7 @@
             </div>
         </div>
         <!-- Second Column -->
-        <div  class="col-md-4" ng-cloak>
+        <div  class="col-md-4">
             <fieldset class="expCat">
                 <legend>General Information</legend>
                 <div>

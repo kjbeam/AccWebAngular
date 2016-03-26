@@ -17,12 +17,16 @@ angular.module("accQueries")
                         $scope.expenses = '';
                         $scope.projectEntity = '';
                         $scope.show = false;
+                        $scope.dataLoading = false;
 
                         $scope.findLease = function (pLeaseNum) {
+                            $scope.show = false;
+                            $scope.dataLoading = true;
                             leaseFactory.getLease(pLeaseNum).then(function (data) {
                                 $scope.leases = data;
                                 if ($scope.leases === null) {
                                     $scope.show = false;
+                                    $scope.dataLoading = false;
                                 } else {  // Lease returned good data.
                                     // Fetch the name from Project Entity
                                     projectEntityFactory.getProjectEntity($scope.leases.propertyId).then(function (peData) {
@@ -31,10 +35,10 @@ angular.module("accQueries")
                                     // Fetch the current expenses for this lease number
                                     expensesFactory.getExpenses($scope.leases.leaseNumber).then(function (exData) {
                                         $scope.expenses = exData;
+                                        $scope.dataLoading = false;
+                                        $scope.show = true;
                                     });
-                                    $scope.show = true;
                                 }
-                            });
+                        });
                         };
-
                     }]);

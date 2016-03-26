@@ -9,7 +9,7 @@ angular.module("accQueries")
                             return response.data;
                         }, function (error) {
                             // Error - Something went wrong
-                            //console.dir(error);
+                            console.log('Status: ' + error.status + '  Data: ' + error.statusText); 
                             return null;
                         });
                     },
