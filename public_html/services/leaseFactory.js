@@ -7,15 +7,15 @@ angular.module("accQueries")
                         return $http.get(url).then(function (response) {
                             // Success
                             return response.data;
-                        }, function (error) {
+                        }, function (response) {
                             // Error - Something went wrong
-                            console.log('Status: ' + error.status + '  Data: ' + error.statusText); 
+                            console.log('Status: ' + response.status + '  StatusText: ' + response.statusText + '  Config: ' + response.config + ' Data :' + response.data); 
                             return null;
                         });
                     },
                     // Return a single lease based on lease number
                     getLease: function (pLeaseNum) {
-                        this.leases = this.makeRequest("http://10.236.65.95:8080/AccruentQA_DB/webresources/restfulservices.latbllease/leaseNumber/" + pLeaseNum);
+                        this.leases = this.makeRequest("http://jdeowp2web:8080/AccruentQA_DB/webresources/restfulservices.latbllease/leaseNumber/" + pLeaseNum);
                         // Return the lease object stored on the service
                         return this.leases;
                     },

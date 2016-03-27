@@ -8,7 +8,7 @@
         <button type="button" class="btn btn-success" ng-click="findLease(leaseNumber);show = false" id="searchBut">
              <i class="fa fa-search"></i>
         </button>
-        <span ng-if="leases === null" class="validationError">** Entered lease number not found. **</span>
+        <span ng-if="leases.length===0 && leases !== ''" class="validationError">** Entered lease number not found. **</span>
     </p>
     
     <br/>
@@ -19,7 +19,7 @@
         <!-- First Column -->
         <div  class="col-md-4">
             <div class="well">
-                <h3>{{leases.name}} - {{projectEntity.name}}</h3>
+                <h3>{{leases[0].name}} - {{projectEntity.name}}</h3>
             </div>
         </div>
         <!-- Second Column -->
@@ -27,8 +27,8 @@
             <fieldset class="expCat">
                 <legend>General Information</legend>
                 <div>
-                    <p><label>Lease End Date:</label><span>{{leases.leaseEndDate | date:"MM/dd/yyyy"}}</span></p>
-                    <p><label>Rentable Area:</label><span>{{leases.rentableArea | number: 0}}</span></p>
+                    <p><label>Lease End Date:</label><span>{{leases[0].leaseEndDate | date:"MM/dd/yyyy"}}</span></p>
+                    <p><label>Rentable Area:</label><span>{{leases[0].rentableArea | number: 0}}</span></p>
                 </div>
             </fieldset>
         </div>
