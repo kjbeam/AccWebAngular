@@ -15,7 +15,7 @@ angular.module("accQueries")
                     },
                     // Return current expenses based on lease number
                     getExpenses: function (pLeaseNum) {
-                        this.expenses = this.makeRequest("http://10.236.65.95:8080/AccruentQA_DB/webresources/restfulservices.service.vwbobjexpensestep/leaseNumber/" + pLeaseNum);
+                        this.expenses = this.makeRequest("http://jdeowp2web:8080/AccruentQA_DB/webresources/restfulservices.service.vwbobjexpensestep/leaseNumber/" + pLeaseNum);
                         // Return the expenses object stored on the service
                         return this.expenses;
                     }

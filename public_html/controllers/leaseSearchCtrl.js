@@ -14,7 +14,7 @@ angular.module("accQueries")
                             expensesFactory) {
 
                         $scope.leases = '';
-                        $scope.expenses = '';
+                        $scope.expenses = [];
                         $scope.projectEntity = '';
                         $scope.show = false;
                         $scope.dataLoading = false;
@@ -24,7 +24,7 @@ angular.module("accQueries")
                             $scope.dataLoading = true;
                             leaseFactory.getLease(pLeaseNum).then(function (data) {
                                 $scope.leases = data;
-                                if ($scope.leases.length === 0) {
+                                if ($scope.leases === null || $scope.leases.length === 0) {
                                     $scope.show = false;
                                     $scope.dataLoading = false;
                                 } else {  // Lease returned good data.
@@ -33,7 +33,7 @@ angular.module("accQueries")
                                         $scope.projectEntity = peData;
                                     });
                                     // Fetch the current expenses for this lease number
-                                    expensesFactory.getExpenses($scope.leases[0].leaseNumber).then(function (exData) {
+                                    expensesFactory.getExpenses(pLeaseNum).then(function (exData) {
                                         $scope.expenses = exData;
                                         $scope.dataLoading = false;
                                         $scope.show = true;
