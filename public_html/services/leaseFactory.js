@@ -20,8 +20,8 @@ angular.module("accQueries")
                         return this.leases;
                     },
                     // Return all leases based on lease name
-                    getLeases: function () {
-                        this.leases = this.makeRequest("http://10.236.65.95:8080/AccruentQA_DB/webresources/restfulservices.latbllease/name/");
+                    getLeases: function (pLeaseName) {
+                        this.leases = this.makeRequest("http://jdeowp2web:8080/AccruentQA_DB/webresources/restfulservices.latbllease/name/" + pLeaseName);
 
                         // Return the lease object stored on the service
                         return this.leases;

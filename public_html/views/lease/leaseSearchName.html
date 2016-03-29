@@ -3,20 +3,25 @@
     <br/>
     
     <p>
-        <input type="text" ng-model="leaseName"  placeholder="Search..." focus="true" id="searchText"/>
-        <button type="button" class="btn btn-success" ng-click="findLease()" id="searchBut">
+        <input type="text" ng-model="leaseName"  placeholder="Search..." focus="true" id="searchText"
+               ng-keyup="$event.keyCode == 13 ? findLeasesByName(leaseName) : null"/>
+        <button type="button" class="btn btn-success" ng-click="findLeasesByName(leaseName);show = false" id="searchBut">
              <i class="fa fa-search"></i>
         </button>
     </p>
     
     <br/>
-
+    
+    <div ng-if="dataLoading" style="padding-left : 10px;">
+        <em>Loading...</em>
+    </div>
+    
     <div  class="col-xs-4">
-        
-        <strong>{{leases.name}}</strong>
+        <div class="well" ng-show="show" ng-cloak ng-repeat="lease in leases">
+                
+            <strong>{{lease.name}} - {{lease.facName}}</strong>
 
-        <a ng-href="#/leaseExpenses" class="btn btn-success pull-right">Select</a>
-
+            <a ng-href="#/leaseExpenses" class="btn btn-success pull-right">Select</a>
         </div>
     </div>
 </div>

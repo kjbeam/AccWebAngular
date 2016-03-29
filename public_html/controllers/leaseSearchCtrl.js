@@ -18,6 +18,7 @@ angular.module("accQueries")
                         $scope.projectEntity = '';
                         $scope.show = false;
                         $scope.dataLoading = false;
+                        //var projectEntityArray = [];
 
                         $scope.findLease = function (pLeaseNum) {
                             $scope.show = false;
@@ -41,4 +42,32 @@ angular.module("accQueries")
                                 }
                         });
                         };
+                        
+                        $scope.findLeasesByName = function (pLeaseName) {
+                            $scope.show = false;
+                            $scope.dataLoading = true;
+                            leaseFactory.getLeases(pLeaseName).then(function (data) {
+                                $scope.leases = data;
+                                if ($scope.leases === null || $scope.leases.length === 0) {
+                                    $scope.show = false;
+                                    $scope.dataLoading = false;
+                                } else {  
+                                    // Lease returned good data.
+                                    // Loop through the leases that were returned
+                                    // and for each one fetch the facility name from Project Entity
+                                    // and add it to the leases object
+                                    
+                                    angular.forEach($scope.leases,function(value,index){
+                                        projectEntityFactory.getProjectEntity(value.propertyId).then(function (peData) {
+                                            $scope.projectEntity = peData;
+                                            value.facName = $scope.projectEntity.name;
+                                        });
+                                    });
+                                                                        
+                                    $scope.dataLoading = false;
+                                    $scope.show = true;
+                                }
+                            });
+                        };
+                        
                     }]);
