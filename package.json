@@ -1,0 +1,33 @@
+{
+  "name": "accwebangular",
+  "version": "1.0.0",
+  "description": "Accruent Web Queries",
+  "main": "karma.conf.js",
+  "directories": {
+    "test": "test"
+  },
+  "dependencies": {
+    "jasmine-core": "^2.4.1",
+    "karma": "^0.13.22",
+    "karma-chrome-launcher": "^0.2.3",
+    "karma-jasmine": "^0.3.8"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://kjbeam@github.com/kjbeam/AccWebAngular.git"
+  },
+  "keywords": [
+    "angularjs",
+    "bootstrap"
+  ],
+  "author": "kbeam",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kjbeam/AccWebAngular/issues"
+  },
+  "homepage": "https://github.com/kjbeam/AccWebAngular#readme"
+}
