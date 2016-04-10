@@ -8,8 +8,8 @@
         <button type="button" class="btn btn-default" ng-click="findLease(leaseNumber);show = false" id="searchBut">
              <i class="fa fa-search"></i>
         </button>
-        <span ng-if="leases.length===0 && leases !== ''" class="validationError">** Entered lease number not found. **</span>
-        <span ng-if="leases === null" class="validationError">** The database was not able to be reached **</span>
+        <span ng-if="leases.length===0 && leases !== ''" class="alert alert-warning validationError">** Entered lease number not found. **</span>
+        <span ng-if="leases === null" class="alert alert-warning validationError">** The database was not able to be reached **</span>
     </p>
     
     <br/>
