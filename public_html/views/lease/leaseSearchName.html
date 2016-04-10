@@ -1,29 +1,52 @@
 <div  ng-controller="leaseSearchCtrl" class="container-fluid">
     <h2 class="text-center">Lease By Name</h2>
     <br/>
-    
+
     <p>
         <input type="text" ng-model="leaseName"  placeholder="Search..." focus="true" id="searchText"
                ng-keyup="$event.keyCode == 13 ? findLeasesByName(leaseName) : null"/>
         <button type="button" class="btn btn-default" ng-click="findLeasesByName(leaseName);show = false" id="searchBut">
-             <i class="fa fa-search"></i>
+            <i class="fa fa-search"></i>
         </button>
     </p>
-    
+
     <br/>
-    
+
     <div ng-if="dataLoading" style="padding-left : 10px;">
         <em>Loading...</em>
     </div>
-    
-    <div  class="col-md-5">
-        <div class="well" ng-show="show" ng-cloak ng-repeat="lease in leases">
-                
-            <strong>{{lease.name}} - {{lease.facName}}</strong>
 
-            <a ng-href="#/leaseExpenses" class="btn btn-success pull-right" id="butSelect">Select</a>
+    <div class="row" ng-show="show" ng-cloak>
+        <div  class="col-md-5">
+            <div class="well" ng-show="show" ng-cloak ng-repeat="lease in leases">
+
+                <strong>{{lease.name}} - {{lease.facName}}</strong>
+                <!-- ng-href="#/leaseExpenses" -->
+                <a class="btn btn-success pull-right" id="butSelect" ng-click="getExpenseDetails(lease.leaseNumber,$index)">Select</a>
+            </div>
+        </div>
+        <div  class="col-md-3">
+            <fieldset class="expCat">
+                <legend>General Information</legend>
+                <div>
+                    <p><label>Lease End Date:</label><span>{{leases[index].leaseEndDate | date:"MM/dd/yyyy"}}</span></p>
+                    <p><label>Rentable Area:</label><span>{{leases[index].rentableArea | number: 0}}</span></p>
+                </div>
+            </fieldset>
+        </div>
+        <div  class="col-md-4">
+            <fieldset class="expCat">
+                <legend>Expense Categories</legend>
+                <!-- comment <p><label>Expense Category</label></p> -->
+                <div ng-repeat="expense in expenses">
+                
+                    <p>
+                        <label>{{expense.expenseName}}:</label>
+                        <span>{{expense.amount/expense.rentableArea | number: 2}}</span>
+                    </p>
+                
+                </div>
+            </fieldset>
         </div>
     </div>
-    <div  class="col-md-3"></div>
-    <div  class="col-md-4"></div>
 </div>

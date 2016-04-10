@@ -18,6 +18,7 @@ angular.module("accQueries")
                         $scope.projectEntity = '';
                         $scope.show = false;
                         $scope.dataLoading = false;
+                        $scope.index = 0;
                         //var projectEntityArray = [];
 
                         $scope.findLease = function (pLeaseNum) {
@@ -68,6 +69,16 @@ angular.module("accQueries")
                                     $scope.show = true;
                                 }
                             });
+                        };
+                        
+                        $scope.getExpenseDetails = function (pLeaseNum, index) {
+                            // Fetch the current expenses for this lease number
+                                    expensesFactory.getExpenses(pLeaseNum).then(function (exData) {
+                                        $scope.expenses = exData;
+                                        $scope.index = index;
+                                        $scope.dataLoading = false;
+                                        $scope.show = true;
+                                    });
                         };
                         
                     }]);
