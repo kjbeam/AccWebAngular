@@ -17,6 +17,7 @@ angular.module("accQueries")
                         $scope.expenses = [];
                         $scope.projectEntity = '';
                         $scope.show = false;
+                        $scope.showDetails = false;
                         $scope.dataLoading = false;
                         $scope.index = 0;
                         //var projectEntityArray = [];
@@ -73,11 +74,15 @@ angular.module("accQueries")
                         
                         $scope.getExpenseDetails = function (pLeaseNum, index) {
                             // Fetch the current expenses for this lease number
+                                    $scope.showDetails = false;
+                                    $scope.dataLoading = true;
+                                    
                                     expensesFactory.getExpenses(pLeaseNum).then(function (exData) {
                                         $scope.expenses = exData;
                                         $scope.index = index;
                                         $scope.dataLoading = false;
                                         $scope.show = true;
+                                        $scope.showDetails = true;
                                     });
                         };
                         

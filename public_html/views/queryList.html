@@ -1,7 +1,6 @@
 <div class="panel panel-default row" ng-controller="queryListCtrl">
     <div class="col-xs-3">
-        <a ng-click="selectEntity()"
-           class="btn btn-block btn-default btn-lg"><h2>Home</h2></a>
+        <a ng-click="selectEntity()" class="btn btn-block btn-default btn-lg"><h2>Home</h2></a>
            <a ng-repeat="query in data.queries  | orderBy: 'entity' | unique: 'entity'"
                ng-click="selectEntity(query)" class="btn btn-block btn-default btn-lg"
                ng-class="getEntityClass(query)">

@@ -1,31 +1,36 @@
 <div  ng-controller="leaseSearchCtrl" class="container-fluid">
     <h2 class="text-center">Lease By Name</h2>
     <br/>
-
+    <h3 class="text-center" ng-show="showDetails">{{leases[index].name}} - {{leases[index].facName}}</h3>
+    <br/>
     <p>
         <input type="text" ng-model="leaseName"  placeholder="Search..." focus="true" id="searchText"
                ng-keyup="$event.keyCode == 13 ? findLeasesByName(leaseName) : null"/>
-        <button type="button" class="btn btn-default" ng-click="findLeasesByName(leaseName);show = false" id="searchBut">
+        <button type="button" class="btn btn-default" ng-click="findLeasesByName(leaseName);show = false;showDetails = false" id="searchBut">
             <i class="fa fa-search"></i>
         </button>
     </p>
 
     <br/>
 
-    <div ng-if="dataLoading" style="padding-left : 10px;">
-        <em>Loading...</em>
-    </div>
-
-    <div class="row" ng-show="show" ng-cloak>
+    <div class="row" ng-cloak>
         <div  class="col-md-5">
-            <div class="well" ng-show="show" ng-cloak ng-repeat="lease in leases">
-
-                <strong>{{lease.name}} - {{lease.facName}}</strong>
-                <!-- ng-href="#/leaseExpenses" -->
-                <a class="btn btn-success pull-right" id="butSelect" ng-click="getExpenseDetails(lease.leaseNumber,$index)">Select</a>
+            <div ng-show="show" ng-cloak ng-repeat="lease in leases">
+         
+                <a id="btnCustom" class="btn btn-block btn-default btn-sm" data-toggle="button" aria-pressed="false" autocomplete="off" 
+                   ng-click="getExpenseDetails(lease.leaseNumber,$index)" role="button">
+                    <strong>{{lease.name}} - {{lease.facName}}</strong>
+                </a>
+                
             </div>
         </div>
-        <div  class="col-md-3">
+        <div ng-if="dataLoading" style="padding-left : 10px;">
+                <em>Loading...</em>
+            </div>
+        <div  class="col-md-3" ng-show="showDetails">
+            <div ng-if="dataLoading" style="padding-left : 10px;">
+                <em>Loading...</em>
+            </div>
             <fieldset class="expCat">
                 <legend>General Information</legend>
                 <div>
@@ -34,7 +39,7 @@
                 </div>
             </fieldset>
         </div>
-        <div  class="col-md-4">
+        <div  class="col-md-4" ng-show="showDetails">
             <fieldset class="expCat">
                 <legend>Expense Categories</legend>
                 <!-- comment <p><label>Expense Category</label></p> -->
