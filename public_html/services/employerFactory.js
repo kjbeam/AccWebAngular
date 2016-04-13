@@ -2,7 +2,7 @@
  *  Factory to bring back data from Lx_Employer by the employerPK
  */
 angular.module("accQueries")
-        .factory('employerFactory', ['$http', '$q', function ($http, $q) {
+        .factory('employerFactory', ['$http', '$q', 'baseURL', function ($http, $q, baseURL) {
 
                 return {
                     employerData: '',
@@ -18,7 +18,7 @@ angular.module("accQueries")
                     },
                     getEmployerData: function (val) {
                         // Get the employer data based on employerPK
-                        this.employerData = this.makeRequest("http://10.236.65.95:8080/AccruentQA_DB/webresources/restfulservices.lxemployer/" + val);
+                        this.employerData = this.makeRequest(baseURL + "restfulservices.lxemployer/" + val);
 
                         // Return the center object stored on the service
                         return this.employerData;

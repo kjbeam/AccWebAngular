@@ -1,5 +1,5 @@
 angular.module("accQueries")
-        .factory('centerFactory', ['$http', '$q', 'centerSharedDataFactory', function ($http, $q, centerSharedDataFactory) {
+        .factory('centerFactory', ['$http', '$q', 'centerSharedDataFactory','baseURL', function ($http, $q, centerSharedDataFactory, baseURL) {
 
                 return {
                     center: '',
@@ -16,7 +16,7 @@ angular.module("accQueries")
                     getCenter: function () {
                         // Get the center name from the center shared data factory
                         var cenName = centerSharedDataFactory.get();
-                        this.center = this.makeRequest("http://10.236.65.95:8080/AccruentQA_DB/webresources/restfulservices.vwcustcenter/centerName/" + cenName);
+                        this.center = this.makeRequest(baseURL + "restfulservices.vwcustcenter/centerName/" + cenName);
 
                         // Return the center object stored on the service
                         return this.center;

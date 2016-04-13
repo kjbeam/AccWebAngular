@@ -1,5 +1,5 @@
 angular.module("accQueries")
-        .factory('leaseFactory', ['$http', function ($http) {
+        .factory('leaseFactory', ['$http', 'baseURL', function ($http, baseURL) {
 
                 return {
                     leases: '',
@@ -15,13 +15,13 @@ angular.module("accQueries")
                     },
                     // Return a single lease based on lease number
                     getLease: function (pLeaseNum) {
-                        this.leases = this.makeRequest("http://jdeowp2web:8080/AccruentQA_DB/webresources/restfulservices.latbllease/leaseNumber/" + pLeaseNum);
+                        this.leases = this.makeRequest(baseURL + "restfulservices.latbllease/leaseNumber/" + pLeaseNum);
                         // Return the lease object stored on the service
                         return this.leases;
                     },
                     // Return all leases based on lease name
                     getLeases: function (pLeaseName) {
-                        this.leases = this.makeRequest("http://jdeowp2web:8080/AccruentQA_DB/webresources/restfulservices.latbllease/name/" + pLeaseName);
+                        this.leases = this.makeRequest(baseURL + "restfulservices.latbllease/name/" + pLeaseName);
 
                         // Return the lease object stored on the service
                         return this.leases;

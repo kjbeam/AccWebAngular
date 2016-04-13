@@ -1,5 +1,5 @@
 angular.module("accQueries")
-        .factory('clientExtFactory', ['$http', '$q', 'saveProjectEntityID', function ($http, $q, saveProjectEntityID) {
+        .factory('clientExtFactory', ['$http', '$q', 'saveProjectEntityID', 'baseURL', function ($http, $q, saveProjectEntityID, baseURL) {
 
                 return {
                     clientExtension: '',
@@ -16,7 +16,7 @@ angular.module("accQueries")
                     getClientExt: function () {
                         // Get the center name from the center shared data factory
                         var projectEntityID = saveProjectEntityID.get();
-                        this.clientExtension = this.makeRequest("http://10.236.65.95:8080/AccruentQA_DB/webresources/restfulservices.lxclientextension/projectEntityFK/" + projectEntityID);
+                        this.clientExtension = this.makeRequest(baseURL + "restfulservices.lxclientextension/projectEntityFK/" + projectEntityID);
 
                         // Return the center object stored on the service
                         return this.clientExtension;

@@ -2,7 +2,7 @@
  *  Factory to bring back data from Lx_customCodeDropdownField by the PK
  */
 angular.module("accQueries")
-        .factory('customCodeDDFieldFactory', ['$http', '$q', function ($http, $q) {
+        .factory('customCodeDDFieldFactory', ['$http', '$q', 'baseURL', function ($http, $q, baseURL) {
 
                 return {
                     customCodeDDField: '',
@@ -19,7 +19,7 @@ angular.module("accQueries")
                     getCCDDFieldText: function (val) {
                         // Get the center name from the center shared data factory
                         //var projectEntityID = saveProjectEntityID.get();
-                        this.customCodeDDField = this.makeRequest("http://10.236.65.95:8080/AccruentQA_DB/webresources/restfulservices.lxcustomdropdownfield/" + val);
+                        this.customCodeDDField = this.makeRequest(baseURL + "restfulservices.lxcustomdropdownfield/" + val);
 
                         // Return the center object stored on the service
                         return this.customCodeDDField;

@@ -3,7 +3,9 @@
 
 'use strict';
 
-angular.module("accQueries",["customFilters","ngRoute"])      
+angular.module("accQueries",["customFilters","ngRoute"])
+                    .constant('baseURL', 'http://jdeowp2web:8080/AccruentPROD_DB/webresources/')
+
                     .config(function ($routeProvider) {
                         $routeProvider.when("/", {
                             templateUrl: "views/queryList.html"
