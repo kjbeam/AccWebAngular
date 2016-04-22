@@ -1,5 +1,11 @@
-angular.module("accQueries")
-        .factory('leaseFactory', ['$http', 'baseURL', function ($http, baseURL) {
+(function() {
+    'use strict';
+
+    angular
+        .module("accQueries")
+        .factory('leaseFactory', leaseFactory);
+
+    function leaseFactory($http, baseURL) {
 
                 return {
                     leases: '',
@@ -28,7 +34,8 @@ angular.module("accQueries")
                     }
                 };
 
-            }]);
+            }
+})();
 
 
 

@@ -1,30 +1,23 @@
-angular.module("accQueries")
-        .factory('centerSharedDataFactory', function () {
-            var savedData = {};
-            function set(data) {
-                savedData = data;
-            }
-            function get() {
-                return savedData;
-            }
+(function () {
+    'use strict';
 
-            return {
-                set: set,
-                get: get
-            };
+    angular
+            .module('accQueries')
+            .factory('centerSharedDataFactory', centerSharedDataFactory);
 
-        })
-        .factory('saveProjectEntityID', function() {
-            var savedData = {};
-            function set(data) {
-                savedData = data;
-            }
-            function get() {
-                return savedData;
-            }
+    function centerSharedDataFactory() {
+        var savedData = {};
+        function set(data) {
+            savedData = data;
+        }
+        function get() {
+            return savedData;
+        }
 
-            return {
-                set: set,
-                get: get
-            };
-        });
+        return {
+            set: set,
+            get: get
+        };
+
+    }
+})();

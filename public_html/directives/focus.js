@@ -1,18 +1,15 @@
-/* 
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 (function() {
     'use strict';
 
     angular
         .module('accQueries')
-        .directive('kbFocus', kbFocus);
+        .directive('focus', focus);
 
-    function kbFocus($timeout) {
+    function focus ($timeout) {
         return {
-            scope: {trigger: '@focus'},
+            scope: {
+                trigger: '@focus'
+            },
             link: function (scope, element) {
                 scope.$watch('trigger', function (value) {
                     if (value === "true") {

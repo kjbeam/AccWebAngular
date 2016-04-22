@@ -1,4 +1,4 @@
-<div  ng-controller="cenNameLikeCtrl" class="container-fluid">
+<div  ng-controller="cenNameLikeCtrl as cenNameLike" class="container-fluid">
     <h2 class="text-center">Center By Name</h2>
     <br/>
     
@@ -19,7 +19,8 @@
 
             <strong>{{d.name}}</strong>
 
-            <a ng-href="#/cenInfo" class="btn btn-success pull-right" ng-click="setCenterName(d.name);setProjectEntityID(d.projectEntityPK)">Select</a>
+            <a ng-href="#/cenInfo" class="btn btn-success pull-right" 
+               ng-click="setCenterName(d.name);setProjectEntityID(d.projectEntityPK)">Select</a>
 
         </div>
     </div>

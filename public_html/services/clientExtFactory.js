@@ -1,30 +1,35 @@
-angular.module("accQueries")
-        .factory('clientExtFactory', ['$http', '$q', 'saveProjectEntityID', 'baseURL', function ($http, $q, saveProjectEntityID, baseURL) {
+(function () {
+    'use strict';
 
-                return {
-                    clientExtension: '',
-                    makeRequest: function (url) {
-                        // Create the deferred object
-                        var deferred = $q.defer();
+    angular
+            .module('accQueries')
+            .factory('clientExtFactory', clientExtFactory);
 
-                        $http.get(url).then(function (resp) {
-                            deferred.resolve(resp.data);
-                        });
+    function clientExtFactory($http, $q, saveProjectEntityID, baseURL) {
 
-                        return deferred.promise;
-                    },
-                    getClientExt: function () {
-                        // Get the center name from the center shared data factory
-                        var projectEntityID = saveProjectEntityID.get();
-                        this.clientExtension = this.makeRequest(baseURL + "restfulservices.lxclientextension/projectEntityFK/" + projectEntityID);
+        return {
+            clientExtension: '',
+            makeRequest: function (url) {
+                // Create the deferred object
+                var deferred = $q.defer();
 
-                        // Return the center object stored on the service
-                        return this.clientExtension;
-                    }
-                    
-                };
+                $http.get(url).then(function (resp) {
+                    deferred.resolve(resp.data);
+                });
 
-            }]);
+                return deferred.promise;
+            },
+            getClientExt: function () {
+                // Get the center name from the center shared data factory
+                var projectEntityID = saveProjectEntityID.get();
+                this.clientExtension = this.makeRequest(baseURL + "restfulservices.lxclientextension/projectEntityFK/" + projectEntityID);
+
+                // Return the center object stored on the service
+                return this.clientExtension;
+            }
+        };
+    }
+})();
 
 
 
