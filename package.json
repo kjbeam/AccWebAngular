@@ -12,7 +12,13 @@
     "karma-chrome-launcher": "^0.2.3",
     "karma-jasmine": "^0.3.8"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "grunt": "^1.0.1",
+    "grunt-contrib-concat": "^1.0.1",
+    "grunt-contrib-jshint": "^1.0.0",
+    "grunt-contrib-uglify": "^1.0.1",
+    "grunt-ng-annotate": "^2.0.2"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
