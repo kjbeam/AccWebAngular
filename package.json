@@ -4,7 +4,14 @@
   "description": "Accruent Web Queries",
   "main": "karma.conf.js",
   "directories": {
-    "test": "test"
+    "root"      : "public_html",
+    "dist"      : "public_html/dist",
+    "deploy"    : "//jdeowp2web/c$/glassfish-4.1/glassfish4/glassfish/domains/domain1/docroot/AccWebAngular",
+    "minsafe"   : "public_html/min-safe",
+    "views"     : "public_html/views",
+    "images"    : "public_html/images",
+    "styles"    : "public_html/styles",
+    "test"  : "test"
   },
   "dependencies": {
     "jasmine-core": "^2.4.1",
@@ -14,10 +21,14 @@
   },
   "devDependencies": {
     "grunt": "^1.0.1",
-    "grunt-contrib-concat": "^1.0.1",
+    "grunt-contrib-copy": "^1.0.0",
+    "grunt-contrib-cssmin": "^1.0.1",
     "grunt-contrib-jshint": "^1.0.0",
     "grunt-contrib-uglify": "^1.0.1",
-    "grunt-ng-annotate": "^2.0.2"
+    "grunt-karma": "^0.12.2",
+    "grunt-ng-annotate": "^2.0.2",
+    "grunt-usemin": "^3.1.1",
+    "gruntify-eslint": "^2.0.0"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"

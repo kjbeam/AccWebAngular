@@ -4,6 +4,7 @@
  */
 (function() {
     'use strict';
+    /*jshint eqnull:true */
     angular
         .module('accQueries')
         .constant('queryListActiveClass','btn-primary')

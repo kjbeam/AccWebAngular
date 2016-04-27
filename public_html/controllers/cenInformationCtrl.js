@@ -71,11 +71,11 @@
                     });
                     // Determine metro population
                     var metroPopValue;
-                    var str = value.definedField19,
-                            delimiter = '~',
-                            start = 0,
-                            tokens = str.split(delimiter).slice(start);
-                    metroPopValue = parseInt(tokens[9]);
+                    var popStr = value.definedField19,
+                            popDelimiter = '~',
+                            popStart = 0,
+                            popTokens = popStr.split(popDelimiter).slice(popStart);
+                    metroPopValue = parseInt(popTokens[9]);
                     customCodeDDFieldFactory.getCCDDFieldText(metroPopValue).then(function (ccddData) {
                         $scope.metroPop = ccddData.text;
                     });
@@ -88,6 +88,6 @@
 
         $scope.getProjectEntityID = saveProjectEntityID.get();
 
-    };
+    }
     
 })();
