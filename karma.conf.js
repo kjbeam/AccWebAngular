@@ -1,5 +1,5 @@
 // Karma configuration
-// Generated on Fri Apr 01 2016 09:39:21 GMT-0400 (Eastern Daylight Time)
+// Generated on Thu Apr 28 2016 16:13:51 GMT-0400 (Eastern Daylight Time)
 
 module.exports = function(config) {
   config.set({
@@ -15,7 +15,11 @@ module.exports = function(config) {
 
     // list of files / patterns to load in the browser
     files: [
-      'test/*.test.js'
+        'node_modules/angular/angular.js',
+        'node_modules/angular-route/angular-route.js',
+        'node_modules/angular-mocks/angular-mocks.js',
+        'public_html/**/*.js',
+        'WebTest/**/*.test.js'
     ],
 
 
@@ -27,13 +31,22 @@ module.exports = function(config) {
     // preprocess matching files before serving them to the browser
     // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
     preprocessors: {
+      'public_html/**/*.html': ['ng-html2js'],
+      'public_html/!dist/': ['coverage']
+    },
+
+    ngHtml2JsPreprocessor: {
+      // strip this from the file path
+      stripPrefix: 'public_html/',
+      // create a single module that contains templates from all the files
+      moduleName: 'templates'
     },
 
 
     // test results reporter to use
     // possible values: 'dots', 'progress'
     // available reporters: https://npmjs.org/browse/keyword/karma-reporter
-    reporters: ['progress'],
+    reporters: ['story', 'coverage'],
 
 
     // web server port

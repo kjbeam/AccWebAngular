@@ -58,8 +58,10 @@ module.exports = function (grunt) {
         },
         copy: {
             indexHTMLtoDist: {
-                src:'<%= pkg.directories.root %>/index.html',
-                dest: '<%= pkg.directories.dist %>/index.html'
+                expand: true, 
+                cwd:    '<%= pkg.directories.root %>',
+                src:    'index.html',
+                dest:   '<%= pkg.directories.dist %>'
             },
             main: {
                 files: [
@@ -78,14 +80,10 @@ module.exports = function (grunt) {
         },
         karma: {
             options: {
-                configFile: 'config/karma.conf.js'
+                configFile: 'karma.conf.js'
             },
             unit: {
                 singleRun: true
-            },
-            continuous: {
-                singleRun: false,
-                autoWatch: true
             }
         }
     });

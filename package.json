@@ -4,22 +4,24 @@
   "description": "Accruent Web Queries",
   "main": "karma.conf.js",
   "directories": {
-    "root"      : "public_html",
-    "dist"      : "public_html/dist",
-    "deploy"    : "//jdeowp2web/c$/glassfish-4.1/glassfish4/glassfish/domains/domain1/docroot/AccWebAngular",
-    "minsafe"   : "public_html/min-safe",
-    "views"     : "public_html/views",
-    "images"    : "public_html/images",
-    "styles"    : "public_html/styles",
-    "test"  : "test"
+    "root": "public_html",
+    "dist": "dist",
+    "deploy": "//jdeowp2web/c$/glassfish-4.1/glassfish4/glassfish/domains/domain1/docroot/AccWebAngular",
+    "minsafe": "min-safe",
+    "views": "public_html/views",
+    "images": "public_html/images",
+    "styles": "public_html/styles",
+    "test": "test"
   },
   "dependencies": {
+    "angular": "^1.5.5",
     "jasmine-core": "^2.4.1",
     "karma": "^0.13.22",
     "karma-chrome-launcher": "^0.2.3",
     "karma-jasmine": "^0.3.8"
   },
   "devDependencies": {
+    "angular-mocks": "^1.5.5",
     "grunt": "^1.0.1",
     "grunt-contrib-copy": "^1.0.0",
     "grunt-contrib-cssmin": "^1.0.1",
@@ -28,10 +30,18 @@
     "grunt-karma": "^0.12.2",
     "grunt-ng-annotate": "^2.0.2",
     "grunt-usemin": "^3.1.1",
-    "gruntify-eslint": "^2.0.0"
+    "gruntify-eslint": "^2.0.0",
+    "karma": "^0.13.22",
+    "karma-coverage": "^0.5.5",
+    "karma-ie-launcher": "^0.2.0",
+    "karma-ng-html2js-preprocessor": "^0.2.2",
+    "karma-phantomjs-launcher": "^1.0.0",
+    "karma-safari-launcher": "^0.1.1",
+    "karma-story-reporter": "^0.3.1",
+    "phantomjs-prebuilt": "^2.1.7"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "karma start"
   },
   "repository": {
     "type": "git",

@@ -1,4 +1,5 @@
-/nbproject/private/
-/node_modules/
-/public_html/dist/
-/public_html/min-safe/
+/nbproject/private/**
+/node_modules/**/**
+/dist/**
+/min-safe/**
+/coverage/**
